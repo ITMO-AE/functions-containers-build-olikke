@@ -17,10 +17,9 @@ bool IsPalindrom(string &str)
 vector <string> PalindromFilter(vector <string> &words, int minLength)
 {
     vector <string> result;
-    for (int i=0; i<static_cast<int>(words.size());i++)
+    for (auto word: words)
     {
-        string word=words[i];
-        if (static_cast<int>(word.length())>minLength)
+        if (static_cast<int>(word.length())>=minLength)
         if (IsPalindrom(word)) result.push_back(word);
     }
     return result;
@@ -29,10 +28,8 @@ vector <string> PalindromFilter(vector <string> &words, int minLength)
 
 int main()
 {
-    vector <string> Words = {"nbn","kkgkk","skjfbg","blalb"};
-    vector <string> resultWords = PalindromFilter(Words,2);
-    for (int i=0; i<static_cast<int>(resultWords.size())-1;i++)
-        cout<<resultWords[i]<<", ";
-    cout<<resultWords[static_cast<int>(resultWords.size())-1]<<endl;
+    vector <string> Words = {"","","",""};
+    vector <string> resultWords = PalindromFilter(Words,0);
+    for (auto word: resultWords) cout<<word<<" "<<endl;
     return 0;
 }
