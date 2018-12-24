@@ -1,26 +1,25 @@
 #include <iostream>
-#include <vector>
-#include <iterator>
 
 using namespace std;
 
-void Reverse(vector <int> &Vec)
+int Factorial(int Val)
 {
-    vector <int>::iterator it1= Vec.begin();
-    vector <int>::iterator it2= Vec.end();
-    int k; it2--;
-    do {
-       k=*it1;
-       *it1=*it2;
-       *it2=k;
-    } while (it1++<--it2);
+    if (Val<0) return 1;
+    if (Val>10)
+    {
+        cout<<"Недопуситмое значение. Число д.б. <=10."<<endl;
+        return 0;
+    }
+    int k=1;
+    for (int i=2;i<=Val;i++,k*=i);
+    return k;
 }
 
 int main()
 {
-    vector <int> mVector={1,2,3,4,5,6,7,8,9,10};
-    Reverse(mVector);
-    for (vector <int>::iterator it=mVector.begin();it<mVector.end();cout<<*it++<<" ");
-    cout<<endl;
+    int Val;
+    cout<<"Введите число 0..10: ...";
+    cin>>Val;
+    cout<<Val<<"!="<<Factorial(Val)<<endl;
     return 0;
 }
